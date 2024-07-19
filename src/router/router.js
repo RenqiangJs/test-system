@@ -5,6 +5,7 @@ import {
 import Layout from "../layout/index.vue";
 
 const files = import.meta.globEager("@/views/**/plugin/**.routes.js")
+console.log(files, 8)
 let AllPics = Object.values(files).map((v) => v.default);
 const addRoutes = []
 AllPics.forEach(e => {

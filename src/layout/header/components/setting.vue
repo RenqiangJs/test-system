@@ -42,15 +42,6 @@
         :inactive-icon="Moon"
       />
     </div>
-    <div class="flx-row">
-      <div class="flx-tit">标签栏是否显示</div>
-      <el-switch
-        v-model="istags"
-        @change="changeTags($event)"
-        class="mt-2"
-        style="margin-left: 24px"
-      />
-    </div>
     <!-- <div class="theme-item">
         <el-color-picker
           v-model="themeConfig.primary"
@@ -83,10 +74,6 @@
         界面设置
       </el-divider>
       <div class="theme-item">
-        <span>折叠菜单</span>
-        <el-switch v-model="isCollapse" />
-      </div>
-      <div class="theme-item">
         <span>面包屑导航</span>
         <el-switch v-model="themeConfig.breadcrumb" />
       </div>
@@ -108,9 +95,7 @@ import store from '../../../store/index.js'
 import { mix } from '../../../utils/color.js'
 import { useStore } from 'vuex'
 const value2 = ref(true)
-const istags = computed(() => {
-  return store.getters.themeConfig.istags
-})
+
 // 预定义主题颜色
 const colorList = [
   '#4060c7',
@@ -153,9 +138,6 @@ const openDrawer = () => {
 
 const changeGreyOrWeak = (e) => {
   globalStore.dispatch('user/changeMenuColor', e)
-}
-const changeTags = (e) => {
-  globalStore.dispatch('user/changeTags', e)
 }
 </script>
 

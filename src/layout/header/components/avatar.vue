@@ -23,10 +23,7 @@ import store from '../../../store/index.js'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const themeConfig = store.getters.themeConfig
-const handleClick = () => {
-  // eslint-disable-next-line no-alert
-  alert('button click')
-}
+
 
 const gotoLogin = () => {
   sessionStorage.removeItem('token')

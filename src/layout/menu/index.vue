@@ -1,77 +1,127 @@
 <template>
-  <div
-    id="guide"
-    class="menu"
-    :style="{
-      width: store.getters.isCollapse == true ? '' : '200px',
-      height: '100%',
-      color: themeConfig.textColor,
-    }"
-  >
-    <div class="logo" v-if="!store.getters.isCollapse">
-      <img src="../../assets/logo.png" alt="" style="margin-right: 5px" /> BIG
-      CUTE
+  <div id="guide" class="menu" :style="{
+    width: '200px'
+  }">
+    <div class="logo">
+      <el-image style="width: 160px; height: 180px"
+        src="https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg" :zoom-rate="1.2" :max-scale="7"
+        :min-scale="0.2" :initial-index="4" fit="cover" />
+      <p>周润发</p>
     </div>
-    <div class="logo" v-else>
-      <img src="../../assets/logo.png" alt="" />
-    </div>
-    <el-scrollbar style="height: 100%">
-      <el-menu
-        :default-active="activeMenu"
-        :router="true"
-        :collapse="store.getters.isCollapse"
-        :collapse-transition="false"
-        :unique-opened="true"
-        :background-color="themeConfig.backgroundColor"
-        :text-color="themeConfig.textColor"
-        :active-text-color="themeConfig.primary"
-      >
-        <menuItems :menuList="menuList"></menuItems>
-      </el-menu>
+    <el-scrollbar>
+      <div style="height: 100%">
+        <div class="testModule">
+          <h3 class="moduleName">网店装修</h3>
+          <div class="moduleStep">
+            <div class="step">
+              <span>店铺开设</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step">
+              <span>装修设计</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step">
+              <span>商品分类设置</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step">
+              <span>商品详情设计</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step">
+              <span>商品管理</span>
+            </div>
+          </div>
+        </div>
+        <div class="testModule">
+          <h3 class="moduleName">网店推广</h3>
+          <div class="moduleStep">
+            <div class="step">
+              <span>微博营销</span>
+              <div class="step-line"></div>
+            </div>
+            <div class="step">
+              <span>微信营销</span>
+            </div>
+          </div>
+        </div>
+        <div class="testModule">
+          <h3 class="moduleName">店铺运营</h3>
+          <div class="moduleStep">
+            <div class="step">
+              <span>客服平台</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </el-scrollbar>
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
-import { getMenuList } from '@api/apis.js'
-import store from '../../store/index.js'
-import menuItems from './components/menuItems.vue'
-import { useRouter, useRoute } from 'vue-router'
-const route = useRoute()
-const activeMenu = computed(() => {
-  return route.path
-})
-const menuList = ref([])
-const handleOpen = (key, keyPath) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key, keyPath) => {
-  console.log(key, keyPath)
-}
-const themeConfig = store.getters.themeConfig
 
-onMounted(() => {
-  getMenuList().then((res) => {
-    menuList.value = res.data.data.menuList
-    console.log(menuItems.value)
-  })
-})
 </script>
 
 <style scoped lang="scss">
 .menu {
-  // width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 0;
+  height: 100vh;
+  background-color: yellow;
+  box-sizing: border-box;
+
   .logo {
-    height: 48px;
-    line-height: 48px;
     padding: 0 20px;
     list-style: none;
     cursor: pointer;
     position: relative;
-    img {
-      width: 25px;
-      vertical-align: middle;
+    text-align: center;
+  }
+
+  :deep(.el-scrollbar) {
+    flex-grow: 1;
+  }
+
+  .testModule {
+    padding: 0 10px;
+
+    .moduleName {
+      font-size: 18px;
+      padding-left: 18px;
+    }
+
+    .moduleStep {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+
+      .step {
+        position: relative;
+        flex-grow: 0;
+        border-radius: 22px;
+        color: #fff;
+        background-color: skyblue;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin-bottom: 30px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .step-line {
+          position: absolute;
+          right: 18px;
+          bottom: -30px;
+          width: 2px;
+          height: 30px;
+          background-color: #fff;
+
+        }
+      }
     }
   }
 }

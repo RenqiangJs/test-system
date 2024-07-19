@@ -41,6 +41,9 @@ onMounted(() => {
     });
   });
 });
+const handleClick = () => {
+  console.log('点击表格')
+}
 </script>
 <style lang="scss" scoped>
 .icon-style {

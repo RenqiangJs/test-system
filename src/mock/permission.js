@@ -1,6 +1,5 @@
 // 引入mockjs
 import Mock from "mockjs";
-import { options } from "../views/home/options";
 const Random = Mock.Random;
 
 let menuList = [
@@ -30,65 +29,7 @@ let menuList = [
         icon: "Grid"
       },
     ],
-  },
-  // {
-  //   title: "页面管理",
-  //   url: "/page",
-  //   icon: "Checked",
-  //   children: [
-  //     {
-  //       title: "表单页",
-  //       url: "/form",
-  //       icon: "Checked",
-  //       children: [
-  //         {
-  //           title: "基础表单",
-  //           url: "/baseForm",
-  //           icon: "Menu",
-  //         },
-  //         {
-  //           url: "/stepFrom",
-  //           title: "步骤表单",
-  //           icon: "Menu",
-  //         },
-  //         {
-  //           url: "/advancedForm",
-  //           title: "高级表单",
-  //           icon: "Menu",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: "/system",
-  //       title: "表格管理",
-  //       icon: "Grid",
-  //       children: [
-  //         {
-  //           url: "/Department",
-  //           title: "机构管理",
-  //           icon: "Menu",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       url: "/ErrorMessage",
-  //       title: "异常页面",
-  //       icon: "WarningFilled",
-  //       children: [
-  //         {
-  //           url: "/404",
-  //           title: "404",
-  //           icon: "Menu",
-  //         },
-  //         {
-  //           url: "/500",
-  //           title: "500",
-  //           icon: "Menu",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
+  }
 ];
 
 export const LoginInfo = (options) => {
@@ -127,7 +68,7 @@ export const getMenuList = (options) => {
 
 // 用户列表
 let userList = [];
-for (let index = 0; index < 50; index++) {
+for (let index = 0;index < 50;index++) {
   let obj = {
     id: Random.id(),
     username: Random.cname(),
@@ -184,7 +125,7 @@ export const listUpdate = (options) => {
 export const Newslist = (options) => {
   let obj = JSON.parse(options.body);
   let newList = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0;i < 10;i++) {
     let item = {
       title: Random.csentence(5, 8), //  Random.csentence( min, max )
       notifyPic: Random.dataImage("300x250", "mock的图片"), // Random.dataImage( size, text ) 生成一段随机的 Base64 图片编码
@@ -205,7 +146,7 @@ export const Newslist = (options) => {
 export const orderLists = (options) => {
   let obj = JSON.parse(options.body);
   let orderList = [];
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0;i < 60;i++) {
     let item = {
       goodsId: i,
       code: Random.guid(),
@@ -240,7 +181,7 @@ export const orderLists = (options) => {
 
 export const homeList = (options) => {
   let homeList = [];
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0;index < 10;index++) {
     let obj = {
       name: "限时秒杀",
       title_id: Random.integer(0, 10) + "id",
@@ -260,7 +201,7 @@ export const homeList = (options) => {
 
 export const noticeLists = (options) => {
   let noticeLists = [];
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0;index < 10;index++) {
     let item = {
       text: Random.csentence(),
     };
@@ -274,7 +215,7 @@ export const noticeLists = (options) => {
 export const cardlists = (options) => {
   let obj = JSON.parse(options.body);
   let cardlists = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0;i < 50;i++) {
     let item = {
       title: Random.csentence(5, 8), //  Random.csentence( min, max )
       user_name: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名

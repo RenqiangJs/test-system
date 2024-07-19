@@ -14,30 +14,25 @@ export default {
   state: {
     UserInfo: {},
     token: sessionStorage.getItem("token") || "",
-    isCollapse: true,
     themeConfig: {
       primary: "#4060c7",
       tabColor: "#FFFFFF",
       footColor: "#606266",
       backgroundColor: "#FFFFFF",
-      textColor: "#00000099",
-      istags: true,
+      textColor: "#00000099"
     },
   },
   mutations: {
-    setToken(state, token) {
+    setToken (state, token) {
       state.token = token;
     },
-    setUserInfo(state, userinfo) {
+    setUserInfo (state, userinfo) {
       state.UserInfo = userinfo;
     },
-    SetIsCollapse(state, isCollapse) {
-      state.isCollapse = isCollapse;
-    },
-    setThemeConfig(state, primary) {
+    setThemeConfig (state, primary) {
       state.themeConfig.primary = primary;
     },
-    setThemeConfigTbaColor(state, primary) {
+    setThemeConfigTbaColor (state, primary) {
       state.themeConfig.tabColor = primary;
       if (primary == "#FFFFFF") {
         state.themeConfig.footColor = "#606266";
@@ -45,7 +40,7 @@ export default {
         state.themeConfig.footColor = "#ffffff";
       }
     },
-    setThemeConfigMenuColor(state, primary) {
+    setThemeConfigMenuColor (state, primary) {
       if (primary) {
         state.themeConfig.backgroundColor = "#FFFFFF";
         state.themeConfig.textColor = "#00000099";
@@ -53,18 +48,11 @@ export default {
         state.themeConfig.backgroundColor = "#1d2129";
         state.themeConfig.textColor = "#bdbdc0";
       }
-    },
-    setThemeConfigchangeTags(state, primary) {
-      if (primary) {
-        state.themeConfig.istags = true
-      } else {
-        state.themeConfig.istags = false
-      }
-    },
+    }
   },
 
   actions: {
-    login({
+    login ({
       commit
     }, userInfo) {
       return new Promise((resolve, reject) => {
@@ -87,14 +75,14 @@ export default {
           });
       });
     },
-    changeIsCollapse({
+    changeIsCollapse ({
       commit
     }, str) {
       console.log(str);
       commit("SetIsCollapse", str);
     },
 
-    changeThem({
+    changeThem ({
       commit
     }, str) {
       commit("setThemeConfig", str);
@@ -106,25 +94,20 @@ export default {
       const el = document.documentElement;
       el.style.setProperty(pre, str);
       // 这里是覆盖原有颜色的核心代码
-      for (let i = 1; i < 10; i += 1) {
+      for (let i = 1;i < 10;i += 1) {
         el.style.setProperty(`${pre}-light-${i}`, mix(str, mixWhite, i * 0.1));
       }
       el.style.setProperty("--el-color-primary-dark", mix(str, mixBlack, 0.1));
     },
-    changeTabColor({
+    changeTabColor ({
       commit
     }, val) {
       commit("setThemeConfigTbaColor", val);
     },
-    changeMenuColor({
+    changeMenuColor ({
       commit
     }, val) {
       commit("setThemeConfigMenuColor", val);
-    },
-    changeTags({
-      commit
-    }, val) {
-      commit("setThemeConfigchangeTags", val);
-    },
+    }
   },
 };
