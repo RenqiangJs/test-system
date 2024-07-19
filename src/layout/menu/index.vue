@@ -67,9 +67,10 @@
 .menu {
   display: flex;
   flex-direction: column;
+  width: 200px;
   padding: 18px 0;
   height: 100vh;
-  background-color: yellow;
+  background-color: #afdfe4;
   box-sizing: border-box;
 
   .logo {
@@ -82,6 +83,7 @@
 
   :deep(.el-scrollbar) {
     flex-grow: 1;
+    padding-bottom: 40px;
   }
 
   .testModule {
@@ -102,7 +104,7 @@
         flex-grow: 0;
         border-radius: 22px;
         color: #fff;
-        background-color: skyblue;
+        background-color: #009ad6;
         height: 40px;
         line-height: 40px;
         text-align: center;
