@@ -37,8 +37,17 @@
         <div class="testModule">
           <h3 class="moduleName">网店推广</h3>
           <div class="moduleStep">
-            <div class="step">
+            <div class="step hasMarket">
               <span>微博营销</span>
+              <div class="market">
+                <span class="market-step">注册</span>
+                <span class="market-step">企业认证</span>
+                <span class="market-step">个人主页管理</span>
+                <span class="market-step">发布微博</span>
+                <span class="market-step">评论互动</span>
+                <span class="market-step">粉丝服务</span>
+                <span class="market-step">营销推广</span>
+              </div>
               <div class="step-line"></div>
             </div>
             <div class="step">
@@ -109,11 +118,28 @@
         line-height: 40px;
         text-align: center;
         margin-bottom: 30px;
-
         &:last-child {
           margin-bottom: 0;
         }
-
+        &.hasMarket{
+          margin-bottom: 240px;
+          .step-line {
+            height: 240px;
+            bottom: -240px;
+          }
+        }
+        .market{
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          right: 30px;
+          bottom: -230px;
+          .market-step{
+            padding: 8px;
+            color: gold;
+            line-height: 16px;
+          }
+        }
         .step-line {
           position: absolute;
           right: 18px;

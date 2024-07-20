@@ -1,25 +1,19 @@
 <template>
   <el-card shadow="never" class="henader-card">
     <div class="flx-row">
-      <el-form :inline="true" :model="queryData" style="flex: 1">
-        <el-input placeholder="请输入搜索内容" v-model="queryData.keyWord">
-        </el-input>
-        <el-date-picker
-          class="ml20"
-          v-model="queryData.date"
-          type="datetimerange"
-          :shortcuts="shortcuts"
-          range-separator="至"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-        />
+      <!-- <el-form :inline="true" :model="queryData" style="flex: 1">
+
       </el-form>
       <div class="flex-right">
         <el-button type="primary" :icon="Search" @click="initData" class="ml20"
           >搜索</el-button
         >
         <el-button type="primary" @click="dialogVisibleShow">+添加</el-button>
+      </div> -->
+      <div style="flex: 1">
+        <el-button type="primary" @click="dialogVisibleShow">+添加分类</el-button>
       </div>
+      <div class="flex-right" style="color: crimson;">请严格按照考试说明答题，否则本题分数可能无效</div>
     </div>
   </el-card>
   <el-card shadow="never">
@@ -75,7 +69,7 @@
 
   <el-dialog
     v-model="dialogVisible"
-    :title="`${dialogData.title}用户`"
+    title="商品分类添加"
     :width="dialogWidth"
     :hide-required-asterisk="dialogData.isView"
     draggable
@@ -87,20 +81,24 @@
       class="demo-ruleForm"
     >
       <el-form-item
-        label="用户名"
+        label="分类名称"
         :label-width="formLabelWidth"
         prop="username"
       >
         <el-input v-model="dialogData.FormData.username" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="邮箱" :label-width="formLabelWidth" prop="email">
-        <el-input v-model="dialogData.FormData.email" autocomplete="off" />
+      <el-form-item label="分类图片" :label-width="formLabelWidth" prop="email">
+        <el-upload
+          v-model:file-list="fileList"
+          action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+          list-type="picture-card"
+          :on-preview="handlePictureCardPreview"
+          :on-remove="handleRemove"
+        >
+          <el-icon><Plus /></el-icon>
+        </el-upload>
       </el-form-item>
-
-      <el-form-item label="地址" :label-width="formLabelWidth" prop="address">
-        <el-input v-model="dialogData.FormData.address" type="textarea" />
-      </el-form-item>
-      <el-form-item label="备注" :label-width="formLabelWidth" prop="content">
+      <el-form-item label="描述" :label-width="formLabelWidth" prop="content">
         <el-input v-model="dialogData.FormData.content" type="textarea" />
       </el-form-item>
     </el-form>
@@ -115,10 +113,8 @@
 
 <script setup>
 import {
-  Search,
   Edit,
   Delete,
-  UserFilled,
   InfoFilled,
   View,
 } from '@element-plus/icons-vue'
@@ -132,7 +128,6 @@ import { onMounted, reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { getDateTime } from '../../../utils/index.js'
 const queryData = ref({
-  keyWord: '',
   page: 1,
   size: 10,
 })
@@ -151,12 +146,10 @@ const dialogData = reactive({
 
 const dialogWidth = ref('0')
 const rules = reactive({
-  username: [{ required: true, message: '请填写用户姓名', trigger: 'change' }],
+  username: [{ required: true, message: '分类名称', trigger: 'change' }],
   email: [{ required: true, message: '请填写邮箱', trigger: 'change' }],
-  address: [{ required: true, message: '请填写居住地址', trigger: 'change' }],
-  content: [{ required: true, message: '请填写备注信息', trigger: 'change' }],
+  address: [{ required: true, message: '描述', trigger: 'change' }]
 })
-const oldTableData = ref([])
 const dialogVisible = ref(false)
 const tableData = ref([])
 const total = ref(0)
@@ -285,12 +278,7 @@ onMounted(() => {
 .el-button--text {
   margin-right: 15px;
 }
-.el-select {
-  width: 300px;
-}
-.el-input {
-  width: 300px;
-}
+
 .dialog-footer button:first-child {
   margin-right: 10px;
 }

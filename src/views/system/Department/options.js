@@ -1,29 +1,29 @@
 export const options = [{
-    label: '用户名',
+    label: '分类名称',
     props: 'username',
     width: 'auto',
     align: 'left'
   },
   {
-    label: '邮箱',
+    label: '分类图片',
     props: 'email',
     width: 'auto',
     align: 'left'
   },
   {
-    label: '创建时间',
+    label: '分类描述',
     props: 'date',
     width: 'auto',
     align: 'left'
   },
   {
-    label: '地址',
+    label: '状态',
     props: 'address',
     width: 'auto',
     align: 'left'
   },
   {
-    label: '备注',
+    label: '位置',
     props: 'content',
     width: 'auto',
     align: 'left',

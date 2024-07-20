@@ -22,6 +22,9 @@
         </el-table>
       </el-form-item>
       <el-form-item label="P图说明：">
+        <el-input v-model="form.name" type="textarea" />
+      </el-form-item>
+      <el-form-item label="相关图片上传：">
         <el-upload
           v-model:file-list="fileList"
           action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
