@@ -1,15 +1,6 @@
 <template>
   <el-card shadow="never" class="henader-card">
     <div class="flx-row">
-      <!-- <el-form :inline="true" :model="queryData" style="flex: 1">
-
-      </el-form>
-      <div class="flex-right">
-        <el-button type="primary" :icon="Search" @click="initData" class="ml20"
-          >搜索</el-button
-        >
-        <el-button type="primary" @click="dialogVisibleShow">+添加</el-button>
-      </div> -->
       <div style="flex: 1">
         <el-button type="primary" @click="dialogVisibleShow">+添加分类</el-button>
       </div>
@@ -126,7 +117,7 @@ import {
 import { options } from './options.js'
 import { onMounted, reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
-import { getDateTime } from '../../../utils/index.js'
+import { getDateTime } from '@/utils/index.js'
 const queryData = ref({
   page: 1,
   size: 10,

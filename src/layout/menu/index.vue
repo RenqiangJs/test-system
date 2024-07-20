@@ -136,7 +136,7 @@
           bottom: -230px;
           .market-step{
             padding: 8px;
-            color: gold;
+            color: #fdb933;
             line-height: 16px;
           }
         }
