@@ -1,4 +1,4 @@
-export function getDateTime(type) {
+export function getDateTime (type) {
   var date = new Date();
   var hengGang = "-";
   var maoHao = ":";
@@ -34,5 +34,14 @@ export function getDateTime(type) {
   } else {
     currentdate = year + hengGang + month + hengGang + curDate + " ";
     return currentdate;
+  }
+}
+export const setDialogWidth = () => {
+  var val = document.body.clientWidth
+  const def = 800 // 默认宽度
+  if (val < def) {
+    dialogWidth.value = '100%'
+  } else {
+    dialogWidth.value = def + 'px'
   }
 }
