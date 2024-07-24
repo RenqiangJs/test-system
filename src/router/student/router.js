@@ -2,9 +2,9 @@ import {
   createRouter,
   createWebHistory
 } from "vue-router";
-import Layout from "../layout/index.vue";
+import Layout from "@/layout/index.vue";
 
-const files = import.meta.globEager("@/views/**/plugin/**.routes.js")
+const files = import.meta.globEager("@/views/student/**/plugin/**.routes.js")
 console.log(files, 8)
 let AllPics = Object.values(files).map((v) => v.default);
 const addRoutes = []
@@ -19,7 +19,7 @@ AllPics.forEach(e => {
  */
 const frameIn = [
   {
-    path: '/',
+    path: '/student',
     component: Layout,
     name: "container",
     redirect: "home",

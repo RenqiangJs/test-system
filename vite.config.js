@@ -3,6 +3,7 @@ import {
   loadEnv
 } from "vite";
 import vue from "@vitejs/plugin-vue";
+import path from "path";
 // 拼接路径
 const resolve = dir => require('path').join(__dirname, dir)
 import {
@@ -80,12 +81,16 @@ export default defineConfig(({ mode }) => {
       },
       // chunkSizeWarningLimit: 1500,大文件报警阈值设置,不建议使用
       rollupOptions: {
+        input: {
+          index: path.resolve(__dirname, 'index.html'),
+          teacher: path.resolve(__dirname, 'teacher.html')
+        },
         output: {
           //静态资源分类打包
           chunkFileNames: "static/js/[name]-[hash].js",
           entryFileNames: "static/js/[name]-[hash].js",
           assetFileNames: "static/[ext]/[name]-[hash].[ext]",
-          manualChunks(id) {
+          manualChunks (id) {
             //静态资源分拆打包
             if (id.includes("node_modules")) {
               return id.toString().split("node_modules/")[1].split("/")[0].toString();

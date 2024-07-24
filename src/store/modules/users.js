@@ -1,7 +1,7 @@
 import {
   LoginInfo
 } from "../../api/apis.js";
-import router from "../../router/router.js";
+import router from "../../router/student/router.js";
 import {
   mix
 } from "../../utils/color.js";
@@ -63,7 +63,7 @@ export default {
             sessionStorage.setItem("UserInfo", JSON.stringify(res.data.data));
             commit("setToken", res.data.data.token);
             commit("setUserInfo", res.data.data);
-            router.replace("/");
+            router.replace("/student");
             ElMessage({
               message: "登录成功",
               type: "success",

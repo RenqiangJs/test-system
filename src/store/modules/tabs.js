@@ -1,7 +1,7 @@
 import {
   ElStep
 } from "element-plus";
-import router from "../../router/router.js";
+import router from "../../router/student/router.js";
 export default {
   namespaced: true,
   state: {
@@ -14,11 +14,11 @@ export default {
     }]
   },
   mutations: {
-    addTabsMenu(state, obj) {
+    addTabsMenu (state, obj) {
 
       let titles = state.tabsMenuList.map(item => item.title).join(',')
       if (titles.includes(obj.title)) {
-        for (let index = 0; index < state.tabsMenuList.length; index++) {
+        for (let index = 0;index < state.tabsMenuList.length;index++) {
           const element = state.tabsMenuList[index];
           state.tabsMenuList[index].checked = false
           if (element.title == obj.title) {
@@ -33,11 +33,11 @@ export default {
       }
     },
 
-    delectTagMenu(state, item) {
+    delectTagMenu (state, item) {
       if (state.tabsMenuList.length == 0) {
         return
       }
-      for (let i = 0; i < state.tabsMenuList.length; i++) {
+      for (let i = 0;i < state.tabsMenuList.length;i++) {
         let ele = state.tabsMenuList[i]
         console.log(ele)
         if (ele == item) {
@@ -52,13 +52,13 @@ export default {
 
   actions: {
 
-    addTabs({
+    addTabs ({
       commit
     }, str) {
       console.log(str);
       commit("addTabsMenu", str);
     },
-    delectTag({
+    delectTag ({
       commit
     }, val) {
 

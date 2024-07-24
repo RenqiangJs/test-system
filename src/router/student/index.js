@@ -2,7 +2,7 @@ import cookies from '@utils/cookies'
 import router from "./router.js";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import store from "../store";
+import store from "../../store/index.js";
 NProgress.configure({
   ease: "ease",
   speed: 500,
