@@ -2,14 +2,14 @@ import {
   createApp
 } from "vue";
 import router from "./router/student/index";
-import store from "../src/store/index";
+import store from "./store/index";
 import './styles/common.scss'
 import ElementPlus from "element-plus";
 import zhCn from "element-plus/es/locale/lang/zh-cn";
 // 引入注册自定义指令
 import directives from "./instruction/index.js";
 import "element-plus/dist/index.css";
-import App from "./App.vue";
+import App from "./studentApp.vue";
 import "./mock/index.js";
 import * as ELIcons from "@element-plus/icons-vue";
 

@@ -1,6 +1,7 @@
 import {
   createRouter,
-  createWebHistory
+  createWebHistory,
+  createWebHashHistory
 } from "vue-router";
 import Layout from "@/teachLayout/index.vue";
 
@@ -47,7 +48,7 @@ let routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: import.meta.env.DEV ? createWebHashHistory() : createWebHistory(),
   routes
 });
 

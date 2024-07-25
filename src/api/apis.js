@@ -2,14 +2,14 @@
 
 import service from "./request.js";
 
-export function LoginInfo(query) {
+export function LoginInfo (query) {
   return service({
     method: "POST",
     url: "/permission/LoginInfo",
     data: query,
   });
 }
-export function getMenuList(query) {
+export function getMenuList (query) {
   return service({
     method: "get",
     url: "/permission/getMenuList",
@@ -17,35 +17,35 @@ export function getMenuList(query) {
   });
 }
 
-export function getUserList(query) {
+export function getUserList (query) {
   return service({
     method: "get",
     url: "/permission/UserList",
     data: query,
   });
 }
-export function addUserList(query) {
+export function addUserList (query) {
   return service({
     method: "post",
     url: "/permission/addUserList",
     data: query,
   });
 }
-export function listUpdate(query) {
+export function listUpdate (query) {
   return service({
     method: "post",
     url: "/permission/listUpdate",
     data: query,
   });
 }
-export function homeList(query) {
+export function homeList (query) {
   return service({
     method: "get",
     url: "/permission/homeList",
     data: query,
   });
 }
-export function noticeLists(query) {
+export function noticeLists (query) {
   return service({
     method: "get",
     url: "/permission/noticeLists",

@@ -3,6 +3,7 @@ import {
 } from "vuex";
 import user from "./modules/users";
 import tabs from './modules/tabs'
+import teacher from "./modules/teacher";
 import getters from "./getters";
 import createPersistedState from "vuex-persistedstate";
 
@@ -19,6 +20,7 @@ export default createStore({
   modules: {
     user,
     tabs,
+    teacher,
     ...modules
   },
   plugins: [

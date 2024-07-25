@@ -82,7 +82,7 @@ export default defineConfig(({ mode }) => {
       // chunkSizeWarningLimit: 1500,大文件报警阈值设置,不建议使用
       rollupOptions: {
         input: {
-          index: path.resolve(__dirname, 'index.html'),
+          student: path.resolve(__dirname, 'student.html'),
           teacher: path.resolve(__dirname, 'teacher.html')
         },
         output: {

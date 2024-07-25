@@ -1,5 +1,4 @@
 <template>
-  123
   <div>
     <el-form :model="form" label-width="auto" style="max-width: 600px">
       <el-form-item label="店铺名称：">

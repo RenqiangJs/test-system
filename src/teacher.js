@@ -10,7 +10,7 @@ import zhCn from "element-plus/es/locale/lang/zh-cn";
 // 引入注册自定义指令
 import directives from "./instruction/index.js";
 
-import App from "./App.vue";
+import App from "./teacherApp.vue";
 import * as ELIcons from "@element-plus/icons-vue";
 
 const app = createApp(App);

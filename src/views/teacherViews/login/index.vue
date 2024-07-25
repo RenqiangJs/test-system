@@ -4,12 +4,12 @@
       <div class="login-left">
         <div class="title">高效记录生活</div>
         <div class="sub">轻松收集，有效整理</div>
-        <img src="../../assets/login.png" alt="" />
+        <img src="@/assets/login.png" alt="" />
       </div>
 
       <div class="login-form">
         <div class="login-logo">
-          <img class="login-icon" src="../../assets/logo.png" alt="" />
+          <img class="login-icon" src="@/assets/logo.png" alt="" />
           <p class="logo-text">欢迎登录</p>
         </div>
         <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" size="large">
@@ -82,6 +82,7 @@ import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 import { userlogin } from "./plugin/login.api";
+
 const loginFormRef = ref();
 const loading = ref(false);
 const router = useRouter();
@@ -102,23 +103,22 @@ const login = (formEl) => {
   formEl.validate((valid) => {
     if (valid) {
       loading.value = true;
-      console.log(globalStore);
-
       if (loginForm.checked) {
-        userlogin(loginForm).then(res => {
-          console.log(res);
-          if (res.data?.status_code == 200) {
-            let password = Base64.encode(loginForm.password); // base64加密
-            setCookie(loginForm.username, password, 7);
-            globalStore.dispatch("user/login", loginForm);
-          } else {
-            ElMessage.error(res.data.message);
-          }
-        }).catch((err) => {
-          ElMessage.error(err);
-        }).finally(() => {
-          loading.value = false;
-        })
+        router.replace({ path: "/entrance" });
+        // userlogin(loginForm).then(res => {
+        //   console.log(res);
+        //   if (res.data?.status_code == 200) {
+        //     let password = Base64.encode(loginForm.password); // base64加密
+        //     setCookie(loginForm.username, password, 7);
+        //     globalStore.dispatch("teacher/login", loginForm);
+        //   } else {
+        //     ElMessage.error(res.data.message);
+        //   }
+        // }).catch((err) => {
+        //   ElMessage.error(err);
+        // }).finally(() => {
+        //   loading.value = false;
+        // })
       } else {
         setCookie("", "", -1);
       }
